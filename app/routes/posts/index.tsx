@@ -1,21 +1,8 @@
 import {Link, useLoaderData} from "remix";
+import {getPosts, Post} from "~/post";
 
-export const loader = (): Post[] => {
-    return [
-        {
-            slug: "my-first-post",
-            title: "My First Post"
-        },
-        {
-            slug: "90s-mixtape",
-            title: "A Mixtape I Made Just For You"
-        }
-    ];
-};
-
-type Post = {
-    slug: string;
-    title: string;
+export const loader = async () => {
+    return await getPosts();
 };
 
 export default () => {
